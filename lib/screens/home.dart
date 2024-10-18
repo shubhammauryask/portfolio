@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
               appBar: AppBar(
                 title: Text(
                   'Welcome!!',
-                  style:  TextStyle(),
+                  style: TextStyle(),
                 ),
                 iconTheme: IconThemeData(
                   color: Color(0xFF2D033B),
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Text(
                             'Hi There! ',
-                            style:  TextStyle(
+                            style: TextStyle(
                                 fontWeight: FontWeight.normal,
                                 fontSize: 31,
                                 color: Colors.white),
@@ -78,13 +78,13 @@ class HomeScreen extends StatelessWidget {
                                 children: [
                                   TextSpan(
                                       text: "I'M ",
-                                      style:  TextStyle(
+                                      style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 31,
                                           fontWeight: FontWeight.normal)),
                                   TextSpan(
                                       text: 'SHUBHAM \nMAURYA',
-                                      style:  TextStyle(
+                                      style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 31,
                                           fontWeight: FontWeight.bold)),
@@ -100,22 +100,30 @@ class HomeScreen extends StatelessWidget {
                       Row(
                         children: [
                           Container(
-                            width: MediaQuery.of(context).size.width*0.42,
+                            width: MediaQuery.of(context).size.width * 0.42,
                             child: ElevatedButton(
-                              onPressed: () {  },
+                              onPressed: () {},
                               child: Row(
                                 children: [
-                                  Icon(Icons.download_rounded,size: 30,color: AppColors.primary,),
+                                  Icon(
+                                    Icons.download_rounded,
+                                    size: 30,
+                                    color: AppColors.primary,
+                                  ),
                                   Spacer(),
-                                  Text('My Resume',style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ),)
+                                  Text(
+                                    'My Resume',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  )
                                 ],
                               ),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Color(0xFF512B81),
+                                padding: EdgeInsets.all(5)
                               ),
                             ),
                           ),
@@ -143,7 +151,7 @@ class HomeScreen extends StatelessWidget {
                                   animatedTexts: [
                                     TyperAnimatedText(
                                       name,
-                                      textStyle:  TextStyle(
+                                      textStyle: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.normal,
                                           color: Colors.white),
@@ -162,10 +170,11 @@ class HomeScreen extends StatelessWidget {
                         height: MediaQuery.of(context).size.height * 0.1,
                       ),
                       ClipRRect(
-                        child: Image.network(
-                            FirebaseData.cp,)
-                            // 'https://firebasestorage.googleapis.com/v0/b/portfolio-ca96e.appspot.com/o/images%2Fcp.png?alt=media&token=8fe77d31-1e1a-4749-97c9-617c743f86cb'),
-                      ),
+                          child: Image.network(
+                        FirebaseData.cp,
+                      )
+                          // 'https://firebasestorage.googleapis.com/v0/b/portfolio-ca96e.appspot.com/o/images%2Fcp.png?alt=media&token=8fe77d31-1e1a-4749-97c9-617c743f86cb'),
+                          ),
                       // Work hai
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.04,
@@ -179,7 +188,7 @@ class HomeScreen extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Text('Certificates',
-                                      style:  TextStyle(
+                                      style: TextStyle(
                                           fontWeight: FontWeight.normal,
                                           fontSize: 21,
                                           color: Colors.white)),
@@ -266,7 +275,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Text(
                         'INTRODUCE',
-                        style:  TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 31,
                           color: AppColors.primary,
@@ -274,7 +283,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Text(
                         'MYSELF',
-                        style:  TextStyle(
+                        style: TextStyle(
                             fontWeight: FontWeight.normal,
                             fontSize: 31,
                             color: Colors.white),
@@ -286,10 +295,24 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Container(
                             width: MediaQuery.of(context).size.width * 0.8,
-                            child: Text(
-                              'I am a 3rd year undergraduate at UIET CSJM University, Kanpur ',
-                              style: TextStyle(
-                                  fontSize: 18, color: Colors.white),
+                            child: RichText(
+                              text: TextSpan(
+                                style: TextStyle(fontSize: 18, color: Colors.white), // Default style
+                                children: [
+                                  TextSpan(text: "I am a "),
+                                  TextSpan(
+                                    text: "final year undergraduate student",
+                                    style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.primary), // Highlighted
+                                  ),
+                                  TextSpan(text: " at "),
+                                  TextSpan(
+                                    text: "UIET CSJM University, Kanpur",
+                                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.orange), // Highlighted
+                                  ),
+                                  TextSpan(text: ", pursuing a Bachelor's degree in Computer Science "),
+                                  TextSpan(text: "."),
+                                ],
+                              ),
                             ),
                           )
                         ],
@@ -303,35 +326,83 @@ class HomeScreen extends StatelessWidget {
                             width: MediaQuery.of(context).size.width * 0.8,
                             child: RichText(
                               text: TextSpan(
+                                style: TextStyle(fontSize: 18, color: Colors.white), // Default style
                                 children: [
+                                  // TextSpan(text: "I am a "),
+                                  // TextSpan(
+                                  //   text: "final year undergraduate student",
+                                  //   style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.primary), // Highlighted
+                                  // ),
+                                  // TextSpan(text: " at "),
+                                  // TextSpan(
+                                  //   text: "UIET CSJM University, Kanpur",
+                                  //   style: TextStyle(fontWeight: FontWeight.bold, color: Colors.orange), // Highlighted
+                                  // ),
+                                  TextSpan(text: "I have over "),
                                   TextSpan(
-                                      text: "I Love",
-                                      style:  TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.normal)),
+                                    text: "8 months",
+                                    style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.primary), // Highlighted
+                                  ),
+                                  TextSpan(text: " of hands-on experience as a "),
                                   TextSpan(
-                                      text: ' problem solving ',
-                                      style:  TextStyle(
-                                          color: AppColors.primary,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold)),
+                                    text: "Flutter developer",
+                                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white), // Highlighted
+                                  ),
+                                  TextSpan(text: ", having worked at "),
                                   TextSpan(
-                                      text:
-                                          'and doing competitive programming.',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.normal)),
+                                    text: "HealTether",
+                                    style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.primary), // Highlighted
+                                  ),
+                                  TextSpan(text: " and "),
+                                  TextSpan(
+                                    text: "Kartavaya Technology",
+                                    style: TextStyle(fontWeight: FontWeight.bold, color:AppColors.primary), // Highlighted
+                                  ),
+                                  TextSpan(text: "."),
                                 ],
                               ),
                             ),
-                          ),
+                          )
                         ],
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.02,
                       ),
+                      // Row(
+                      //   children: [
+                      //     Container(
+                      //       width: MediaQuery.of(context).size.width * 0.8,
+                      //       child: RichText(
+                      //         text: TextSpan(
+                      //           children: [
+                      //             TextSpan(
+                      //                 text: "I Love",
+                      //                 style: TextStyle(
+                      //                     color: Colors.white,
+                      //                     fontSize: 18,
+                      //                     fontWeight: FontWeight.normal)),
+                      //             TextSpan(
+                      //                 text: ' problem solving ',
+                      //                 style: TextStyle(
+                      //                     color: AppColors.primary,
+                      //                     fontSize: 18,
+                      //                     fontWeight: FontWeight.bold)),
+                      //             TextSpan(
+                      //                 text:
+                      //                     'and doing competitive programming.',
+                      //                 style: TextStyle(
+                      //                     color: Colors.white,
+                      //                     fontSize: 18,
+                      //                     fontWeight: FontWeight.normal)),
+                      //           ],
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                      // SizedBox(
+                      //   height: MediaQuery.of(context).size.height * 0.02,
+                      // ),
                       Row(
                         children: [
                           Container(
@@ -353,13 +424,13 @@ class HomeScreen extends StatelessWidget {
                                         TextSpan(
                                             text:
                                                 "My Field of Interest are building new ",
-                                            style:  TextStyle (
+                                            style: TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.normal)),
                                         TextSpan(
                                             text: name1,
-                                            style:  TextStyle(
+                                            style: TextStyle(
                                                 color: AppColors.primary,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold)),
@@ -384,26 +455,26 @@ class HomeScreen extends StatelessWidget {
                                 children: [
                                   TextSpan(
                                       text: "I am a ",
-                                      style:  TextStyle(
+                                      style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 18,
                                           fontWeight: FontWeight.normal)),
                                   TextSpan(
                                       text: 'tech geek ',
-                                      style:  TextStyle(
+                                      style: TextStyle(
                                           color: AppColors.primary,
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold)),
                                   TextSpan(
                                       text:
                                           "and always learn \nand explore things related to\n",
-                                      style:  TextStyle(
+                                      style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 18,
                                           fontWeight: FontWeight.normal)),
                                   TextSpan(
                                       text: 'Technology and Software',
-                                      style:  TextStyle(
+                                      style: TextStyle(
                                           color: AppColors.primary,
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold)),
@@ -437,13 +508,13 @@ class HomeScreen extends StatelessWidget {
                                       children: [
                                         TextSpan(
                                             text: name0,
-                                            style:  TextStyle(
+                                            style: TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.normal)),
                                         TextSpan(
                                             text: name1,
-                                            style:  TextStyle(
+                                            style: TextStyle(
                                                 color: AppColors.primary,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold)),
@@ -577,7 +648,7 @@ class HomeScreen extends StatelessWidget {
                         animatedTexts: [
                           WavyAnimatedText(
                             "FIND ME ON",
-                            textStyle:  TextStyle(
+                            textStyle: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 21,
                                 color: Colors.white),
@@ -604,13 +675,13 @@ class HomeScreen extends StatelessWidget {
                                     fontWeight: FontWeight.normal)),
                             TextSpan(
                                 text: 'connect ',
-                                style:  TextStyle(
+                                style: TextStyle(
                                     color: AppColors.primary,
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold)),
                             TextSpan(
                                 text: "with me.",
-                                style:  TextStyle(
+                                style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
                                     fontWeight: FontWeight.normal)),
@@ -707,10 +778,10 @@ class HomeScreen extends StatelessWidget {
               backgroundColor: Color(0xFF2D033B),
               body: Container(
                   child: Column(
-                  children: [
+                children: [
                   Material(
                     elevation: 10,
-                    color:  Color(0xFF421F6D),
+                    color: Color(0xFF421F6D),
                     child: Container(
                       padding: EdgeInsets.symmetric(
                           horizontal: MediaQuery.of(context).size.width * 0.08,
@@ -721,16 +792,17 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           TextButton(
                               onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => HomeScreen()));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => HomeScreen()));
                               },
                               child: Text(
                                 'Portfolio',
-                                style:  TextStyle(
+                                style: TextStyle(
                                     fontSize:
-                                        MediaQuery.of(context).size.width * 0.02,
+                                        MediaQuery.of(context).size.width *
+                                            0.02,
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.primary),
                               )),
@@ -744,9 +816,10 @@ class HomeScreen extends StatelessWidget {
                               },
                               child: Text(
                                 'Home',
-                                style:  TextStyle(
+                                style: TextStyle(
                                     fontSize:
-                                        MediaQuery.of(context).size.width * 0.015,
+                                        MediaQuery.of(context).size.width *
+                                            0.015,
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.primary),
                               )),
@@ -762,9 +835,10 @@ class HomeScreen extends StatelessWidget {
                               },
                               child: Text(
                                 'About',
-                                style:  TextStyle(
+                                style: TextStyle(
                                     fontSize:
-                                        MediaQuery.of(context).size.width * 0.015,
+                                        MediaQuery.of(context).size.width *
+                                            0.015,
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.primary),
                               )),
@@ -781,9 +855,10 @@ class HomeScreen extends StatelessWidget {
                               },
                               child: Text(
                                 'Certificate',
-                                style:  TextStyle(
+                                style: TextStyle(
                                     fontSize:
-                                        MediaQuery.of(context).size.width * 0.015,
+                                        MediaQuery.of(context).size.width *
+                                            0.015,
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.primary),
                               )),
@@ -799,9 +874,10 @@ class HomeScreen extends StatelessWidget {
                               },
                               child: Text(
                                 'Project',
-                                style:  TextStyle(
+                                style: TextStyle(
                                     fontSize:
-                                        MediaQuery.of(context).size.width * 0.015,
+                                        MediaQuery.of(context).size.width *
+                                            0.015,
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.primary),
                               )),
@@ -817,9 +893,10 @@ class HomeScreen extends StatelessWidget {
                               },
                               child: Text(
                                 'Contact Me',
-                                style:  TextStyle(
+                                style: TextStyle(
                                     fontSize:
-                                        MediaQuery.of(context).size.width * 0.015,
+                                        MediaQuery.of(context).size.width *
+                                            0.015,
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.primary),
                               )),
@@ -852,7 +929,7 @@ class HomeScreen extends StatelessWidget {
                                       children: [
                                         Text(
                                           "Hello It's Me",
-                                          style:   TextStyle(
+                                          style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 21,
                                               color: Colors.white),
@@ -865,12 +942,10 @@ class HomeScreen extends StatelessWidget {
                                           animatedTexts: [
                                             TyperAnimatedText(
                                               'SHUBHAM MAURYA',
-                                              textStyle:
-                                              TextStyle(
-                                                      fontSize: 35,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: AppColors.primary),
+                                              textStyle: TextStyle(
+                                                  fontSize: 35,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: AppColors.primary),
                                               speed: Duration(milliseconds: 50),
                                               curve: Curves.linear,
                                             ),
@@ -882,7 +957,7 @@ class HomeScreen extends StatelessWidget {
                                       children: [
                                         Text(
                                           "And I  Welcome You all",
-                                          style:  TextStyle(
+                                          style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 21,
                                               color: Colors.white),
@@ -903,7 +978,7 @@ class HomeScreen extends StatelessWidget {
                                             " I am Flutter developer and Android Developer,having extensive knowledge of Dart ,Flutter and Kotlin "
                                             "My expertise in making App , webApp, App design and Frontend design , backend and many more. ",
                                             maxLines: 4,
-                                            style:  TextStyle(
+                                            style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 18,
                                                 color: Colors.white),
@@ -942,7 +1017,7 @@ class HomeScreen extends StatelessWidget {
                                                   },
                                                   child: ClipRect(
                                                     child: Image.network(
-                                                        FirebaseData.instagram,
+                                                      FirebaseData.instagram,
                                                       height:
                                                           MediaQuery.of(context)
                                                                   .size
@@ -974,7 +1049,7 @@ class HomeScreen extends StatelessWidget {
                                                   child: ClipRect(
                                                     child: Image.network(
                                                       FirebaseData.linkedin,
-                                                            height:
+                                                      height:
                                                           MediaQuery.of(context)
                                                                   .size
                                                                   .width *
@@ -1083,7 +1158,7 @@ class HomeScreen extends StatelessWidget {
                                     child: Row(
                                       children: [
                                         Text('Certificates',
-                                            style:  TextStyle(
+                                            style: TextStyle(
                                                 fontWeight: FontWeight.normal,
                                                 fontSize: 21,
                                                 color: Colors.white)),
@@ -1097,7 +1172,7 @@ class HomeScreen extends StatelessWidget {
                                                         CertificateScreen()));
                                           },
                                           child: Text('View all',
-                                              style:  TextStyle(
+                                              style: TextStyle(
                                                   fontWeight: FontWeight.normal,
                                                   fontSize: 16,
                                                   color: AppColors.primary)),
@@ -1106,7 +1181,9 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                   ),
                                   Container(
-                                      height: MediaQuery.of(context).size.height * 0.44,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.44,
                                       child: StreamBuilder<QuerySnapshot>(
                                           stream: FirebaseFirestore.instance
                                               .collection('Certificate')
@@ -1186,7 +1263,7 @@ class HomeScreen extends StatelessWidget {
                                         children: [
                                           Text(
                                             '.About Me',
-                                            style:  TextStyle(
+                                            style: TextStyle(
                                                 fontSize: 31,
                                                 fontWeight: FontWeight.bold,
                                                 color: AppColors.primary),
@@ -1197,7 +1274,7 @@ class HomeScreen extends StatelessWidget {
                                         children: [
                                           Text(
                                             'Flutter Developer',
-                                            style:  TextStyle(
+                                            style: TextStyle(
                                                 fontSize: MediaQuery.of(context)
                                                         .size
                                                         .width *
@@ -1210,7 +1287,7 @@ class HomeScreen extends StatelessWidget {
                                       Text(
                                         'I am skilled and passionate flutter developer with deep knowledge and understanding of frontend and backend to change with '
                                         'creative mindset and strong foundation in flutter Development.',
-                                        style:  TextStyle(
+                                        style: TextStyle(
                                             fontSize: MediaQuery.of(context)
                                                     .size
                                                     .width *
@@ -1230,7 +1307,7 @@ class HomeScreen extends StatelessWidget {
                               child: AnimatedTextKit(
                             animatedTexts: [
                               WavyAnimatedText(" More About Me",
-                                  textStyle:  TextStyle(
+                                  textStyle: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 25,
                                       color: AppColors.primary),
@@ -1260,7 +1337,7 @@ class HomeScreen extends StatelessWidget {
                                     child: Row(
                                       children: [
                                         Text('Projects',
-                                            style:  TextStyle(
+                                            style: TextStyle(
                                                 fontWeight: FontWeight.normal,
                                                 fontSize: 21,
                                                 color: Colors.white)),
@@ -1274,7 +1351,7 @@ class HomeScreen extends StatelessWidget {
                                                         CertificateScreen()));
                                           },
                                           child: Text('View all',
-                                              style:  TextStyle(
+                                              style: TextStyle(
                                                   fontWeight: FontWeight.normal,
                                                   fontSize: 16,
                                                   color: AppColors.primary)),
@@ -1284,7 +1361,8 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                   Container(
                                       height:
-                                          MediaQuery.of(context).size.height * 0.54,
+                                          MediaQuery.of(context).size.height *
+                                              0.54,
                                       child: StreamBuilder<QuerySnapshot>(
                                           stream: FirebaseFirestore.instance
                                               .collection('Project')

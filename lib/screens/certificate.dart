@@ -44,37 +44,35 @@ class CertificateScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
-                        Container(
-                          height: MediaQuery.of(context).size.height,
-                          width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.only(bottom: 100),
-                          child: StreamBuilder<QuerySnapshot>(
-                            stream: FirebaseFirestore.instance
-                                .collection('Certificate')
-                                .snapshots(),
-                            builder: (context, snapshot) {
-                              if (snapshot.hasData) {
-                                return ListView.builder(
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: snapshot.data!.docs.length,
-                                  itemBuilder: (context, index) {
-                                    print(snapshot.data!.docs[index].data());
-                                    return Certificate(
-                                        context,
-                                        snapshot.data!.docs[index].data()
-                                            as Map<String, dynamic>);
-                                  },
-                                );
-                              } else {
-                                return CircularProgressIndicator();
-                              }
-                            },
+                        SafeArea(
+                          child: Container(
+                            height: MediaQuery.of(context).size.height*0.80,
+                            width: MediaQuery.of(context).size.width,
+                            child: StreamBuilder<QuerySnapshot>(
+                              stream: FirebaseFirestore.instance
+                                  .collection('Certificate')
+                                  .snapshots(),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  return ListView.builder(
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: snapshot.data!.docs.length,
+                                    itemBuilder: (context, index) {
+                                      print(snapshot.data!.docs[index].data());
+                                      return Certificate(
+                                          context,
+                                          snapshot.data!.docs[index].data()
+                                              as Map<String, dynamic>);
+                                    },
+                                  );
+                                } else {
+                                  return const Center(child: CircularProgressIndicator());
+                                }
+                              },
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.2,
                         ),
                       ],
                     )),

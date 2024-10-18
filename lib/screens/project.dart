@@ -35,47 +35,48 @@ class ProjectScreen extends StatelessWidget {
                 ),
                 backgroundColor: AppColors.primary,
               ),
-              body: Container(
-                child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 20,
+              body: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Container(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Container(
+                        height: MediaQuery.of(context).size.height*0.83,
+                        width: MediaQuery.of(context).size.width,
+                        padding: EdgeInsets.only(
+                          bottom: 10,
+                          left: MediaQuery.of(context).size.width * 0.08,
+                          right: MediaQuery.of(context).size.width * 0.08,
                         ),
-                        Container(
-                          height: MediaQuery.of(context).size.height,
-                          width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.only(
-                            bottom: 100,
-                            left: MediaQuery.of(context).size.width * 0.08,
-                            right: MediaQuery.of(context).size.width * 0.08,
-                          ),
-                          child: StreamBuilder<QuerySnapshot>(
-                            stream: FirebaseFirestore.instance
-                                .collection('Project')
-                                .snapshots(),
-                            builder: (context, snapshot) {
-                              if (snapshot.hasData) {
-                                return ListView.builder(
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: snapshot.data!.docs.length,
-                                  itemBuilder: (context, index) {
-                                    print(snapshot.data!.docs[index].data());
-                                    return Projects(
-                                        context,
-                                        snapshot.data!.docs[index].data()
-                                            as Map<String, dynamic>);
-                                  },
-                                );
-                              } else {
-                                return CircularProgressIndicator();
-                              }
-                            },
-                          ),
+                        child: StreamBuilder<QuerySnapshot>(
+                          stream: FirebaseFirestore.instance
+                              .collection('Project')
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              return ListView.builder(
+                                scrollDirection: Axis.vertical,
+                                itemCount: snapshot.data!.docs.length,
+                                itemBuilder: (context, index) {
+                                  print(snapshot.data!.docs[index].data());
+                                  return Projects(
+                                      context,
+                                      snapshot.data!.docs[index].data()
+                                          as Map<String, dynamic>);
+                                },
+                              );
+                            } else {
+                              return Center( child: CircularProgressIndicator());
+                            }
+                          },
                         ),
-                      ],
-                    )),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             );
           } else {
